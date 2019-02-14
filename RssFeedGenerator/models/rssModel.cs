@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 
 namespace RssFeedGenerator
 {
 
-
-	// 注意: 生成的代码可能至少需要 .NET Framework 4.5 或 .NET Core/Standard 2.0。
-	/// <remarks/>
-	//[System.SerializableAttribute()]
-	//[System.ComponentModel.DesignerCategoryAttribute("code")]
-	[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+	[System.SerializableAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
+	[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = false)]
 	[System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
 	public partial class rss
 	{
@@ -52,27 +44,27 @@ namespace RssFeedGenerator
 	}
 
 	/// <remarks/>
-	//[System.SerializableAttribute()]
-	//[System.ComponentModel.DesignerCategoryAttribute("code")]
+	[System.SerializableAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
 	public partial class rssChannel
 	{
 
 		private string titleField;
 
-		private string linkField;
-
 		private string descriptionField;
 
-		private link link1Field;
+		private string linkField;
 
 		private string languageField;
 
 		private string copyrightField;
 
-		private string lastBuildDateField;
+		private string docsField;
 
-		private byte ttlField;
+		private string generatorField;
+
+		private link link1Field;
 
 		private List<rssChannelItem> itemField;
 
@@ -90,19 +82,6 @@ namespace RssFeedGenerator
 		}
 
 		/// <remarks/>
-		public string link
-		{
-			get
-			{
-				return this.linkField;
-			}
-			set
-			{
-				this.linkField = value;
-			}
-		}
-
-		/// <remarks/>
 		public string description
 		{
 			get
@@ -116,16 +95,15 @@ namespace RssFeedGenerator
 		}
 
 		/// <remarks/>
-		[System.Xml.Serialization.XmlElementAttribute("link", Namespace = "http://www.w3.org/2005/Atom")]
-		public link link1
+		public string link
 		{
 			get
 			{
-				return this.link1Field;
+				return this.linkField;
 			}
 			set
 			{
-				this.link1Field = value;
+				this.linkField = value;
 			}
 		}
 
@@ -156,28 +134,42 @@ namespace RssFeedGenerator
 		}
 
 		/// <remarks/>
-		public string lastBuildDate
+		public string docs
 		{
 			get
 			{
-				return this.lastBuildDateField;
+				return this.docsField;
 			}
 			set
 			{
-				this.lastBuildDateField = value;
+				this.docsField = value;
 			}
 		}
 
 		/// <remarks/>
-		public byte ttl
+		public string generator
 		{
 			get
 			{
-				return this.ttlField;
+				return this.generatorField;
 			}
 			set
 			{
-				this.ttlField = value;
+				this.generatorField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlElementAttribute("link", Namespace = "http://www.w3.org/2005/Atom")]
+		public link link1
+		{
+			get
+			{
+				return this.link1Field;
+			}
+			set
+			{
+				this.link1Field = value;
 			}
 		}
 
@@ -197,8 +189,8 @@ namespace RssFeedGenerator
 	}
 
 	/// <remarks/>
-	//[System.SerializableAttribute()]
-	//[System.ComponentModel.DesignerCategoryAttribute("code")]
+	[System.SerializableAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.w3.org/2005/Atom")]
 	[System.Xml.Serialization.XmlRootAttribute(Namespace = "http://www.w3.org/2005/Atom", IsNullable = false)]
 	public partial class link
@@ -207,6 +199,8 @@ namespace RssFeedGenerator
 		private string hrefField;
 
 		private string relField;
+
+		private string typeField;
 
 		/// <remarks/>
 		[System.Xml.Serialization.XmlAttributeAttribute()]
@@ -235,26 +229,38 @@ namespace RssFeedGenerator
 				this.relField = value;
 			}
 		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAttributeAttribute()]
+		public string type
+		{
+			get
+			{
+				return this.typeField;
+			}
+			set
+			{
+				this.typeField = value;
+			}
+		}
 	}
 
 	/// <remarks/>
-	//[System.SerializableAttribute()]
-	//[System.ComponentModel.DesignerCategoryAttribute("code")]
+	[System.SerializableAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
 	public partial class rssChannelItem
 	{
 
 		private string titleField;
 
-		private string linkField;
-
 		private string descriptionField;
-
-		private string creatorField;
 
 		private string pubDateField;
 
-		private string guidField;
+		private string linkField;
+
+		private rssChannelItemGuid guidField;
 
 		/// <remarks/>
 		public string title
@@ -266,19 +272,6 @@ namespace RssFeedGenerator
 			set
 			{
 				this.titleField = value;
-			}
-		}
-
-		/// <remarks/>
-		public string link
-		{
-			get
-			{
-				return this.linkField;
-			}
-			set
-			{
-				this.linkField = value;
 			}
 		}
 
@@ -296,20 +289,6 @@ namespace RssFeedGenerator
 		}
 
 		/// <remarks/>
-		[System.Xml.Serialization.XmlElementAttribute(Namespace = "http://purl.org/dc/elements/1.1/")]
-		public string creator
-		{
-			get
-			{
-				return this.creatorField;
-			}
-			set
-			{
-				this.creatorField = value;
-			}
-		}
-
-		/// <remarks/>
 		public string pubDate
 		{
 			get
@@ -323,7 +302,20 @@ namespace RssFeedGenerator
 		}
 
 		/// <remarks/>
-		public string guid
+		public string link
+		{
+			get
+			{
+				return this.linkField;
+			}
+			set
+			{
+				this.linkField = value;
+			}
+		}
+
+		/// <remarks/>
+		public rssChannelItemGuid guid
 		{
 			get
 			{
@@ -336,5 +328,44 @@ namespace RssFeedGenerator
 		}
 	}
 
+	/// <remarks/>
+	[System.SerializableAttribute()]
+	[System.ComponentModel.DesignerCategoryAttribute("code")]
+	[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+	public partial class rssChannelItemGuid
+	{
+
+		private bool isPermaLinkField;
+
+		private string valueField;
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlAttributeAttribute()]
+		public bool isPermaLink
+		{
+			get
+			{
+				return this.isPermaLinkField;
+			}
+			set
+			{
+				this.isPermaLinkField = value;
+			}
+		}
+
+		/// <remarks/>
+		[System.Xml.Serialization.XmlTextAttribute()]
+		public string Value
+		{
+			get
+			{
+				return this.valueField;
+			}
+			set
+			{
+				this.valueField = value;
+			}
+		}
+	}
 
 }

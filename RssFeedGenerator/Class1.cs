@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
+﻿using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
 namespace RssFeedGenerator
 {
 
-	public class RssFeedGenerator
+	public class Generator
 	{
+
 		/// <summary>
-		/// rss object to serialize
+		/// return xml-string after run SerializeRSS()
 		/// </summary>
-		public rss RSS_Source { get; set; }
-		/// <summary>
-		/// has xml string value after run SerializeRSS() method
-		/// </summary>
-		public string XmlString;
-		public void SerializeRSS()
+		/// <param name="RSS_Source">rss object to serialize</param>
+		/// <returns></returns>
+		public static string SerializeRSS(rss RSS_Source)
 		{
 			using (MemoryStream ms = new MemoryStream())
 			{
@@ -36,8 +28,11 @@ namespace RssFeedGenerator
 				{
 					XmlSerializer xmlSearializer = new XmlSerializer(typeof(rss));
 					xmlSearializer.Serialize(writer, RSS_Source);
-					XmlString = Encoding.UTF8.GetString(ms.ToArray());
-					XmlString = "<?xml version=\"1.0\" encoding =\"UTF - 8\" ?>" + XmlString;
+					var XmlString = Encoding.UTF8.GetString(ms.ToArray());
+					XmlString = "<?xml version=\"1.0\" encoding =\"UTF-8\"?>" + "\n" + XmlString;
+
+					return XmlString;
+
 				}
 			}
 

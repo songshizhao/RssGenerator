@@ -7,12 +7,16 @@
 result is xml string</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <Copyright>songshizhao.com</Copyright>
-    <PackageProjectUrl>https://github.com/songshizhao/RssFeedGenerator</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/songshizhao/RssGenerator</PackageProjectUrl>
     <RepositoryUrl />
     <PackageReleaseNotes>include rss object and simple method to generate rss.xml (in UTF-8)
 result is xml string</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>rss xml</PackageTags>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyName>RssFeedGenerator</AssemblyName>
+    <Version>1.2.1</Version>
   </PropertyGroup>
 
 </Project>
